@@ -64,3 +64,27 @@
     margin-top:30px;
     text-align:center;
 } 
+
+@media (max-width: 768px){
+
+    .bottom-layout{
+        flex-direction: column;
+    }
+
+    .form-area,
+    .achievement-area{
+        width:100%;
+    }
+
+    .form-grid{
+        flex-direction: column;
+    }
+
+    .right-side{
+        justify-content: space-between;
+    }
+
+    .mission-list{
+        justify-content:center;
+    }
+}
