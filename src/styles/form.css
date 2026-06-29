@@ -1,0 +1,7 @@
+form{
+    padding: 25px;
+     background: rgba(15, 23, 42, 0.65);
+    border: 2px solid rgba(124, 119, 119, 0.5);
+    border-radius: 22px;
+    box-shadow: 4px 4px 12px rgba(0,0,0,0.4);
+}

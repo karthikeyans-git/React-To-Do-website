@@ -157,7 +157,7 @@ setIsDuplicate(false);
             <input
               className="small-input"
               type="date"
-              value={individualMission.date}
+              value={individualMission.date ||""}
               name="date"
               onChange={handleInput}
             />
@@ -169,7 +169,7 @@ setIsDuplicate(false);
             <input
               className="small-input"
               type="time"
-              value={individualMission.time}
+              value={individualMission.time ||" "}
               name="time"
               onChange={handleInput}
             />

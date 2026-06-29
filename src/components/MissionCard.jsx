@@ -19,8 +19,8 @@ function MissionCard({
       </div>
 
       <div className="mission-info">
-        <span>Date: {mission.date}</span>
-        <span>Time: {mission.time}</span>
+        {mission.date && <span>Date: {mission.date}</span>}
+        {mission.time && <span>Time: {mission.time}</span>}
       </div>
 
       <div className="mission-buttons">
