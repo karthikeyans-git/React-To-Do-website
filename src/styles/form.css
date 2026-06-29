@@ -7,6 +7,7 @@ form{
     backdrop-filter: blur(12px);
     transition: transform 0.3s ease,
                 box-shadow 0.3s ease;
+    
 }
  form:hover{
     box-shadow: 7px 7px 18px rgba(79, 184, 184, 0.1);
@@ -73,4 +74,8 @@ form{
 }
 .launch-btn:active{
     transform: scale(0.9);
+}
+form{
+    max-width: 700px;
+    width: 100%;
 }
