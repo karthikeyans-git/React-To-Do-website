@@ -1,12 +1,25 @@
-function AchievementSection({completedMissions}) {
+import "../styles/AchievementSection.css";
+
+function AchievementSection({ completedMissions }) {
   return (
-    <div>
-    <h3> Mission Accomplished</h3>
-    {completedMissions.map((m)=>{
-      return(<div key={m.title}>
-        <p>{m.title}</p>
-      </div>)
-    })}
+    <div className="achievement-section">
+
+      <h2> Mission Accomplished</h2>
+
+      {completedMissions.length === 0 ? (
+        <p className="empty-message">
+          No Missions Completed Yet
+        </p>
+      ) : (
+        completedMissions.map((m) => {
+          return (
+            <div className="achievement-card" key={m.title}>
+              <p> {m.title}</p>
+            </div>
+          );
+        })
+      )}
+
     </div>
   );
 }

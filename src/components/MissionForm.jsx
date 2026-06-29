@@ -5,10 +5,13 @@ function MissionForm({
   missions,
   setMissions,
   editMission,
-  setEditMission
+  setEditMission,
+   launchRocket,
+  setLaunchRocket,
+  setRocketMessage,
+  rocketMessage
 }) 
   {
-
   const [error, setError] = useState("");
   const [isDuplicate, setIsDuplicate] = useState(false);
 
@@ -49,6 +52,11 @@ function MissionForm({
   });
   setError("");
 setIsDuplicate(false);
+ setLaunchRocket(true);
+
+      setTimeout(() => {
+          setLaunchRocket(false);
+      }, 1000);
   return;
     }
  
@@ -58,8 +66,23 @@ setIsDuplicate(false);
         alert("Mission title already exists");
         return;
       }
+          const random =
+      messages[Math.floor(Math.random() * messages.length)];
 
-      setMissions((prev) => [...prev, individualMission]);
+    setRocketMessage(random);
+      setLaunchRocket(true);
+
+      setTimeout(() => {
+          setLaunchRocket(false);
+      }, 1000);
+
+      setTimeout(() => {
+
+        setMissions((prev) => [...prev, individualMission]);
+
+        setLaunchRocket(false);
+
+    }, 500);
 
       localStorage.setItem(
         individualMission.title,
@@ -107,6 +130,18 @@ setIsDuplicate(false);
       setIsDuplicate(false);
     }
   }
+  const messages = [
+  "Mission launched successfully! ",
+  "Another step toward your goal!",
+  "Keep pushing forward!",
+  "Mission accepted, Commander!",
+  "Success starts with one task.",
+  "Dream. Plan. Launch.",
+  "Every mission counts.",
+  "Small progress is still progress.",
+  "Ready for the next adventure?",
+  "Keep building your future!"
+];
 
   return (
     <form onSubmit={handlesubmit}>

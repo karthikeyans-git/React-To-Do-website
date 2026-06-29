@@ -3,15 +3,15 @@
   import Rocket from "./components/Rocket";
   import AchievementSection from "./components/AchievementSection";
   import StatsDashboard from "./components/StatsDashboard";
-  import QuoteBubble from "./components/QuoteBubble";
   import  "./styles/app.css";
   import "./styles/MissionList.css";
 
   import { useEffect, useState ,createContext} from "react";
 
   function App() {
-
-const[editMission,setEditMission]=useState(null);
+    const [rocketMessage, setRocketMessage] = useState("Ready for your next mission!");
+ const [launchRocket, setLaunchRocket] = useState(false);
+ const[editMission,setEditMission]=useState(null);
   const [missions,setMissions] = useState(() => {
   const saved = localStorage.getItem("missionslist");
   if(saved){
@@ -74,6 +74,10 @@ const[editMission,setEditMission]=useState(null);
   setMissions={setMissions} 
   editMission={editMission}
   setEditMission={setEditMission}
+  launchRocket={launchRocket}
+  setLaunchRocket={setLaunchRocket}
+   rocketMessage={rocketMessage}
+  setRocketMessage={setRocketMessage}
  
 />
   </div>
@@ -84,17 +88,18 @@ const[editMission,setEditMission]=useState(null);
       completedMissions={completedMissions}
     />
 
-    <AchievementSection
+    {/* <AchievementSection
       completedMissions={completedMissions}
-    />
+    /> */}
   </div>
 
 </div>
 
     <div className="rocket-area">
-      <QuoteBubble />
-      <Rocket />
+     <Rocket launchRocket={launchRocket} setLaunchRocket={setLaunchRocket}
+     rocketMessage={rocketMessage}/>
     </div>
+   
        
       </div>
     );

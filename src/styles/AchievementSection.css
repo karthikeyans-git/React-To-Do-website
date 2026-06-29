@@ -1,0 +1,31 @@
+.achievement-section{
+    padding:20px;
+    margin:20px;
+    background:rgba(15,23,42,0.75);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:18px;
+    box-shadow:0 8px 18px rgba(0,0,0,0.35);
+    backdrop-filter:blur(12px);
+}
+.achievement-section h2{
+    margin:0 0 18px;
+    text-align:center;
+    color:#F8FAFC;
+    letter-spacing:1px;
+    border-bottom:2px solid rgba(255,255,255,0.15);
+    padding-bottom:10px;
+}
+.achievement-card{
+    padding:12px 15px;
+    margin-bottom:10px;
+    background:rgba(233, 238, 235, 0.15);
+    border:1px solid rgba(233, 240, 236, 0.35);
+    border-radius:10px;
+    color:#BBF7D0;
+    transition:0.3s;
+}
+.achievement-card p{
+    margin:0;
+    font-size:16px;
+    font-weight:500;
+}
