@@ -3,7 +3,10 @@ import "../styles/form.css";
 
 function MissionForm({
   missions,
-  setMissions,}) 
+  setMissions,
+  editMission,
+  setEditMission
+}) 
   {
 
   const [error, setError] = useState("");
@@ -16,12 +19,39 @@ function MissionForm({
     time: ""
   });
 
+  //Edit
+ useEffect(() => {
+  if (editMission) {
+    setMission(editMission);
+  }
+}, [editMission]);
   
 
 
   // Submission
   function handlesubmit(e) {
     e.preventDefault();
+    if(editMission){
+      let updated=missions.map((m)=>{
+        if(m.title===editMission.title){
+          return individualMission;
+        }
+        return m;
+      })
+
+      setMissions(updated);
+      setEditMission(null);
+      setMission({
+    title: "",
+    description: "",
+    date: "",
+    time: ""
+  });
+  setError("");
+setIsDuplicate(false);
+  return;
+    }
+ 
 
 
       if (localStorage.getItem(individualMission.title)) {
@@ -63,7 +93,11 @@ function MissionForm({
   // Check Duplicate Title
   function handleUnique(title) {
 
-    
+    if(editMission && title === editMission.title){
+    setError("");
+    setIsDuplicate(false);
+    return;
+  }
 
     if (localStorage.getItem(title)) {
       setError("The title already exists");
@@ -150,7 +184,7 @@ function MissionForm({
         disabled={isDuplicate}
         type="submit"
       >
-       Launch Mission
+       {editMission?"Edit":"Launch Mission"}
       </button>
 
     </form>

@@ -11,6 +11,7 @@
 
   function App() {
 
+const[editMission,setEditMission]=useState(null);
   const [missions,setMissions] = useState(() => {
   const saved = localStorage.getItem("missionslist");
   if(saved){
@@ -42,16 +43,27 @@
       setCompletedMissions((prev)=>[...prev,mission]);
       deleteMission(mission.title);
     }
+    function editMissionfn(mission){
+      
+      setEditMission(mission);
+    }
   
     return (
      <div className="app">
       <div className="navbar">
-        <h1>Mission Control</h1>
+        <div className="logo">
+          <h1>Mission Control</h1>
+        </div>
+        <div className="tag">
+          <p>    Plan • Launch • Complete • Achieve </p>
+        </div>
+        
       </div>
         <MissionList
   missionList={missions}
   deleteMission={deleteMission}
   addCompletedMission={addCompletedMission}
+  editMissionfn={editMissionfn}
 />
 
 <div className="bottom-layout">
@@ -59,7 +71,9 @@
   <div className="form-area">
     <MissionForm
   missions={missions}
-  setMissions={setMissions}
+  setMissions={setMissions} 
+  editMission={editMission}
+  setEditMission={setEditMission}
  
 />
   </div>

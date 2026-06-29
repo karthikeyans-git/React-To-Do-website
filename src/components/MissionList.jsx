@@ -5,6 +5,7 @@ function MissionList({
   missionList,
   deleteMission,
   addCompletedMission,
+  editMissionfn
 
 }) {
   return (
@@ -21,6 +22,7 @@ function MissionList({
                 mission={m}
                 deleteMission={deleteMission}
                 addCompletedMission={addCompletedMission}
+                 editMissionfn={editMissionfn}
               />
 
             </div>

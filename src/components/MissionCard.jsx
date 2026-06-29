@@ -4,6 +4,7 @@ function MissionCard({
   mission,
   deleteMission,
   addCompletedMission,
+  editMissionfn
 }) {
   return (
     <div className="mission-card">
@@ -31,6 +32,13 @@ function MissionCard({
           >
             Complete
           </button>
+        </div>
+
+        <div className="mission-card-editbtn">
+          <button onClick={()=>editMissionfn(mission)}>
+            Edit
+          </button>
+
         </div>
 
         
