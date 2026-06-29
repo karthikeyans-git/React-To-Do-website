@@ -1,15 +1,38 @@
-function StatsDashboard({missions,completedMissions}) {
+import "../styles/StatsDashboard.css"
+function StatsDashboard({ missions, completedMissions }) {
 
   const successRate =
-  (completedMissions.length /
-    (missions.length + completedMissions.length)) *
-  100;
+    (completedMissions.length /
+      (missions.length + completedMissions.length)) *
+    100;
+
   return (
-    <div>
-     <h3>Total Missions:{missions.length+completedMissions.length}</h3>
-     <h3>Completed Missions:{completedMissions.length}</h3>
-     <h3>Pendng Missions:{missions.length}</h3>
-     <h3> Success Rate: {isNaN(successRate) ? 0 : successRate.toFixed(2)}%</h3>
+    <div className="stats-dashboard">
+
+      <h2>Mission Statistics</h2>
+
+      <div className="stat-row">
+        <span>Total Missions:</span>
+        <span>{missions.length + completedMissions.length}</span>
+      </div>
+
+      <div className="stat-row">
+        <span>Completed:</span>
+        <span>{completedMissions.length}</span>
+      </div>
+
+      <div className="stat-row">
+        <span>Pending:</span>
+        <span>{missions.length}</span>
+      </div>
+
+      <div className="stat-row">
+        <span>Success Rate:</span>
+        <span>
+          {isNaN(successRate) ? 0 : successRate.toFixed(2)}%
+        </span>
+      </div>
+
     </div>
   );
 }

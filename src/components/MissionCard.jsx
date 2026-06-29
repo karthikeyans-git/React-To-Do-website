@@ -13,15 +13,17 @@ function MissionCard({
         <h1>{mission.title}</h1>
       </div>
 
-      <div className="mission-card-input">
+      {mission.description &&<div className="mission-card-input">
         <h3>Description:</h3>
         <p>{mission.description}</p>
-      </div>
-
-      <div className="mission-info">
+      </div>}
+      
+     {(mission.date || mission.time)&&
+     <div className="mission-info">
         {mission.date && <span>Date: {mission.date}</span>}
         {mission.time && <span>Time: {mission.time}</span>}
-      </div>
+      </div>}
+      
 
       <div className="mission-buttons">
 
